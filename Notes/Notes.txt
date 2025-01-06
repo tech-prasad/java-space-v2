@@ -1,0 +1,61 @@
+Java:
+-----
+Processor is Hardware which understands only Binary numbers (0,1)
+
+User instruction -> Calculator -> OS -> Processor
+User instruction -> calculator -> OS System Routines -> Commands -> ZEROs and ONEs
+
+Processor - 
+Low level or Machine language - ZEROs and ONEs
+Middle level or Assembly language - Commands
+	Commands: add 2 2 , sub 2 2
+
+OS -
+System routines
+
+Binary:
+0 1 -> 0 1 2 3 4
+
+0 - 0 0
+1 - 0 1
+2 - 1 0
+3 - 1 1
+4 - 1 0 0
+8 - 1 0 0 0
+
+1 1 1 1 1 1 1 1 - 255
+
+2 power 0
+2 power 1
+2 power 2
+
+Decimal:
+10 power 0
+10 power 1
+10 power 2
+
+What is Java?
+Java is a Programing Language
+Java is a High Level Programing Language
+
+	High Level: Human understandable statements [print]
+	High Level: Simple english like statements [print]
+
+	Simple english like statements -> OS -> Processor
+	Simple english like statements -> OS System routines -> Commands -> ZEROs and ONEs
+
+Java follows OOPS Principles,
+Java is a Object Oriented Programing Language
+
+	Object Oriented Programing Language has 4 Principles
+	1. Encapsulation
+	2. Inheritance
+	3. Abstraction
+	4. Polymorphism
+
+What we can develop using Java?
+	
+Which company developed Java?
+	
+Define Java?
+	
