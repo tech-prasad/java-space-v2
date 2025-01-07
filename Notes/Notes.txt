@@ -1,9 +1,11 @@
 Java:
 -----
+06-JAN-2025
+-----------
 Processor is Hardware which understands only Binary numbers (0,1)
 
-User instruction -> Calculator -> OS -> Processor
-User instruction -> calculator -> OS System Routines -> Commands -> ZEROs and ONEs
+User input -> Calculator -> OS -> Processor
+User input -> calculator -> OS System Routines -> Commands -> ZEROs and ONEs
 
 Processor - 
 Low level or Machine language - ZEROs and ONEs
@@ -19,11 +21,6 @@ Binary:
 0 - 0 0
 1 - 0 1
 2 - 1 0
-3 - 1 1
-4 - 1 0 0
-8 - 1 0 0 0
-
-1 1 1 1 1 1 1 1 - 255
 
 2 power 0
 2 power 1
@@ -33,6 +30,9 @@ Decimal:
 10 power 0
 10 power 1
 10 power 2
+
+Octal - 8
+Hexa decimal - 16
 
 What is Java?
 Java is a Programing Language
@@ -53,9 +53,131 @@ Java is a Object Oriented Programing Language
 	3. Abstraction
 	4. Polymorphism
 
+07-JAN-2025
+-----------
 What we can develop using Java?
+	Standalone applications (Calculator), Web applications(Netbanking) and Enterprise applications(SAP)
 	
 Which company developed Java?
+	Sun Microsystem -> Oracle
 	
 Define Java?
+	Java is a High Level, Object Oriented Programing Language used to develop Standalone, Web and Enterprise Applications developed by Sun Microsystem and Owned by Oracle.	
 	
+Introduction to JVM
+	JVM: Java virtual machine
+	It is Execution Engine in Java
+	It is used run Java code
+	
+Explain Object Oriented Programing Language?
+	1. Encapsulation
+	2. Inheritance
+	3. Abstraction
+	4. Polymorphism
+	
+1. Encapsulation:
+-----------------
+	It is the process of binding data with its functionality together in a Single entity.
+	We have to use Class and Object to Achieve Encapsulation.
+	
+	It is the process of binding data members with its methods together in a Single entity.
+	
+	Class {
+		data - data member - variable
+		functionality - method
+	}
+	
+	Object1 {
+		data = 3
+		functionality = data + 6
+	}
+	
+	Object2 {
+		data = 4
+		functionality = data + 6
+	}
+
+Class: it is logical structure
+Object: it is a real entity representing Class
+
+NumberPrcoesser:
+
+public class NumberPrcoesser {
+	
+	// Variable
+	int data;
+	
+	// Constructor
+	public NumberPrcoesser(){
+		data = 7;
+	}
+	
+	// Method
+	public void addAndPrint(){
+		System.out.println(data + 7);
+	}
+	
+	public static void main(String[] arr) {
+		
+		// Object
+		NumberPrcoesser reference1 = new NumberPrcoesser();
+		reference1.addAndPrint();
+
+		// Object
+		NumberPrcoesser reference2 = new NumberPrcoesser();
+		reference2.data = 9;
+		reference2.addAndPrint();
+	}
+}
+
+output:
+14
+16
+
+Class: It is a Logical structure, which contains variables, constructors and methods.
+
+Object: It is a real entity. It is physical representation of the Class.
+
+Variable: It is named memory location and hold the link to that memory location. it is used to access the data stored in that memory location.
+
+Method: It is used define the functionality.
+
+Constructor: It is a special method and used to initialize data members (Variables).
+
+2. Inheritance
+--------------
+It is the process of establishing relationship between classes and Extending the Properties of one class into another class.
+
+public class Anil {
+	
+	String car = "Kia";
+	
+	public void driveCar(){
+		System.out.println("Driving car: "+ car);
+	}	
+}
+
+public class Bharath extends Anil {
+
+	String bike;
+	
+	public Bharath() {
+		bike = "Pulser";
+	}
+	
+	public void driveBike(){
+		System.out.println("Driving bike: "+ bike);
+	}
+	
+	public static void main(String[] a) {	
+		Bharath b = new Bharath(); // Memory and Constructor -> What is the reference type
+		
+		b.driveCar();
+		
+		b.driveBike();
+	}
+}
+O/P
+Driving car: kia
+Driving bike: Pulser
+
