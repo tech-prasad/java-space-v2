@@ -62,7 +62,7 @@ Which company developed Java?
 	Sun Microsystem -> Oracle
 	
 Define Java?
-	Java is a High Level, Object Oriented Programing Language used to develop Standalone, Web and Enterprise Applications developed by Sun Microsystem and Owned by Oracle.	
+	Java is a High Level, Object Oriented Programing Language used to develop Standalone, Web and Enterprise Applications and It was developed by Sun Microsystem and Now Owned by Oracle.	
 	
 Introduction to JVM
 	JVM: Java virtual machine
@@ -77,10 +77,9 @@ Explain Object Oriented Programing Language?
 	
 1. Encapsulation:
 -----------------
-	It is the process of binding data with its functionality together in a Single entity.
+	It is the process of binding data and functionality together in a Single entity.
+	It is the process of binding variables and methods together in a Single entity.
 	We have to use Class and Object to Achieve Encapsulation.
-	
-	It is the process of binding data members with its methods together in a Single entity.
 	
 	Class {
 		data - data member - variable
@@ -97,14 +96,14 @@ Explain Object Oriented Programing Language?
 		functionality = data + 6
 	}
 
-Class: it is logical structure
-Object: it is a real entity representing Class
+Class: it is logical structure and it has variables, constructors and methods
+Object: it is a real entity which represents the Class
 
 NumberPrcoesser:
 
 public class NumberPrcoesser {
 	
-	// Variable
+	// Instance variable
 	int data;
 	
 	// Constructor
@@ -112,18 +111,23 @@ public class NumberPrcoesser {
 		data = 7;
 	}
 	
-	// Method
+	// Instance method
 	public void addAndPrint(){
 		System.out.println(data + 7);
 	}
 	
 	public static void main(String[] arr) {
 		
-		// Object
+		// how many steps happened here? What happened here?
+		// Step 1: Object creation started
+		// Step 2: Memory allocated NumberPrcoesser class instance variables
+		// Step 3: NumberPrcoesser constructor called and initialized NumberPrcoesser class instance variables
+		// Step 4: Object creation completed
+		// Step 5: Object placed in NumberPrcoesser class reference variable
 		NumberPrcoesser reference1 = new NumberPrcoesser();
 		reference1.addAndPrint();
 
-		// Object
+		// Object of the class, reference2 is called reference variable
 		NumberPrcoesser reference2 = new NumberPrcoesser();
 		reference2.data = 9;
 		reference2.addAndPrint();
@@ -134,19 +138,24 @@ output:
 14
 16
 
-Class: It is a Logical structure, which contains variables, constructors and methods.
-
-Object: It is a real entity. It is physical representation of the Class.
+Class: It is a Logical structure which contains variables, constructors and methods.
 
 Variable: It is named memory location and hold the link to that memory location. it is used to access the data stored in that memory location.
 
-Method: It is used define the functionality.
+Method: It is a set of instructions to fulfill the functionality.
 
-Constructor: It is a special method and used to initialize data members (Variables).
+Constructor: It is a special method and used to initialize data members of the Class.
+			 It has same name as class name
+
+Object: It is a real entity. It is physical representation of the Class.
+		When we create an Object, Memory will be allocated to variables and Constructor will be called to Initialize variables. Object also referred as Instance of the class.
 
 2. Inheritance
 --------------
 It is the process of establishing relationship between classes and Extending the Properties of one class into another class.
+With Inheritance, We will reuse some piece of functionality.
+
+Inheritance relationship is called "IS-A" relationship.
 
 public class Anil {
 	
@@ -181,3 +190,226 @@ O/P
 Driving car: kia
 Driving bike: Pulser
 
+What is Anil: Parent class
+What is Bharath: Child class
+
+Parent -> Base -> Super
+Child -> Derived -> Sub
+
+We use "extends" keyword to Apply Inheritance.
+
+What happens when we create child class object?
+Memory will be allocated to child class instance variables and Parent class instance variables.
+Both child and parent class Constructors will be called and initialize instance variables.
+
+What happens when we create parent class object?
+Memory will be allocated to Parent class instance variables.
+Parent class Constructor will be called and initialize instance variables.
+
+08-JAN-2025
+-----------
+We have 5 types Inheritance.
+1. Single Inheritance
+2. Multi Level Inheritance
+3. Hierarchical Inheritance
+4. Multiple Inheritance
+5. Hybrid Inheritance
+
+1. Single Inheritance
+---------------------
+It is the process of One Parent and One Child relationship.
+
+class Anil {
+	
+	String car;
+	
+	Anil() {
+		car = "Kia";
+	}
+	
+	void driveCar(){
+		System.out.println("Driving car: "+ car);
+	}
+}
+
+class Bharath extends Anil {
+	
+	String bike;
+	
+	Bharath(){
+		bike = "Pulser";
+	}
+	
+	void driveBike(){
+		System.out.println("Drive bike: "+ bike);
+	}	
+}
+
+public class Test {	
+	public static void main(String[] arr){		
+		// how many steps happened here? What happened here?
+		// Step 1: Object creation started
+		// Step 2: Memory allocated child class instance variables and parent class instance variables
+		// Step 3: Child constructor called and parent class constructor called and initialized both child and parent class instance variables
+		// Step 4: Object creation completed
+		// Step 5: Object placed in child class reference variable
+		Bharath b = new Bharath();
+		
+		// What happened here?
+		// Step 1: With child class reference, we called driveCar() method
+		// Step 2: Control will go to child class and look for method driveCar()
+		// Step 3: as the method does not exist in child, JVM checks if any Inheritance relationship.
+		// Step 4: as the Inheritance relationship exist, Control will go parent class and look for method drive car
+		// Step 5: as the method driveCar exist in parent class, method will be executed.
+		b.driveCar();
+		
+		// What happened here?
+		// Step 1: With child class reference, we called driveBike() method
+		// Step 2: Control will go to child class and look for method driveBike()
+		// Step 3: as the method driveBike method exist, method will be executed
+		b.driveBike();		
+	}	
+}
+
+Anil is a Single parent and Bharath is a Signle child, so this is a Single Inheritance.
+
+2. Multi Level Inheritance
+--------------------------
+It is the process of Parent and Child Chain Relationship.
+
+Parent p1 -> Child c1
+Child c1 -> Child c2
+Child c2 -> Child c3
+P1 -> C1 -> C2 -> C3
+
+P1 is parent of C1
+C1 is child of P1 and C1 is parent of C2
+C2 is child of C1 and C2 is parent of C3
+C3 is child of C2
+
+class Anil {
+	
+	String car;
+	
+	Anil() {
+		car = "Kia";
+	}
+	
+	void driveCar(){
+		System.out.println("Driving car: "+ car);
+	}
+}
+class Bharath extends Anil {
+	
+	String bike;
+	
+	Bharath(){
+		bike = "Pulser";
+	}
+	
+	void driveBike(){
+		System.out.println("Drive bike: "+ bike);
+	}	
+}
+class Chandu extends Bharath {
+
+	String phone;
+	
+	Chandu(){
+		phone = "Apple";
+	}
+	
+	void useTab(){
+		System.out.println("Using tab: MI Tab");
+	}
+	
+	void usePhone(){		
+		System.out.println("Using phone: "+ phone);
+		
+		useTab();
+		
+		driveCar();
+	}
+}
+public class MultiLevelInheritance {
+	public static void main(String[] array) {		
+		Chandu reference = new Chandu();
+		
+		reference.driveBike();
+		
+		reference.driveCar();
+		reference.driveCar();
+		reference.driveCar();	
+		
+		reference.usePhone();	
+	}	
+}
+O/P
+Drive bike: Pulser
+Driving car: Kia
+Driving car: Kia
+Driving car: Kia
+Using phone: Apple
+Using tab: MI Tab
+Driving car: Kia
+
+3. Hierarchical Inheritance
+---------------------------
+It is the process of One Parent Class with Two or More Child Classes
+
+class Anil {
+	
+	String car;
+	
+	Anil() {
+		car = "Kia";
+	}
+	
+	void driveCar(){
+		System.out.println("Driving car: "+ car);
+	}
+}
+class Bharath extends Anil {
+	
+	String bike;
+	
+	Bharath(){
+		bike = "Pulser";
+	}
+	
+	void driveBike(){
+		System.out.println("Drive bike: "+ bike);
+	}	
+}
+
+class Chandu extends Anil {
+
+	String phone;
+	
+	Chandu(){
+		phone = "Apple";
+	}	
+	
+	void usePhone(){		
+		System.out.println("Using phone: "+ phone);		
+	}
+}
+public class HierarchicalInheritance{	
+	public static void main(String[] a) {	
+		Bharath bReference = new Bharath();
+		
+		bReference.driveCar();
+		bReference.driveBike();
+		
+		Chandu cReference = new Chandu();
+		
+		cReference.driveCar();
+		cReference.usePhone();		
+	}
+}
+
+O/P
+Driving car: Kia
+Drive bike: Pulser
+Driving car: Kia
+Using phone: Apple
